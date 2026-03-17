@@ -230,6 +230,9 @@ emax(ME,MK)$(K_EXRES(MK) and %calc_year% eq %start_year%)       =emax_t(ME,MK,'%
 emax_ex(ME,MK)$(K_EXRES(MK) and %calc_year% gt %start_year%)    =emax_ex_load(ME,MK);
 emax(ME,MK)$(K_EXRES(MK) and %calc_year% gt %start_year%)       =emax_ex_y_load(ME,MK);
 
+
+$if %techgrowth_con%==on  $ife not %calc_year%==%start_year% $include '%prog_dir%/inc_prog/techgrowth.gms';
+
 * bound settings
 
 RES_END.up(MR,INT)$MR_INT(MR,INT)                               =res_end_up(MR,INT,'%calc_year%');
